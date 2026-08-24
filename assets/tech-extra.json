@@ -358,16 +358,16 @@
       "repo": "hyojunguy/token-factory-gateway",
       "url": "https://github.com/hyojunguy/token-factory-gateway",
       "title": "토큰 팩토리 게이트웨이 · 계량 콘솔",
-      "excerpt": "텍스트 · 이미지 · 영상 · 음성을 하나의 OpenAI 호환 표면 뒤에 두는 게이트웨이다. 모달리티마다 원가 구조가 달라 토큰 하나로 셀 수 없으므로, 계량 원장을 따로 두고 무엇을 얼마에 썼는지 콘솔에서 되짚을 수 있게 했다. 청구가 걸린 숫자라 집계는 코드가 소유한다.",
+      "excerpt": "텍스트 · 이미지 · 영상 · 음성을 하나의 OpenAI 호환 표면 뒤에 두는 게이트웨이다. 모달리티마다 원가 구조가 달라 토큰 하나로 셀 수 없으므로, 계량 원장을 따로 두고 무엇을 얼마에 썼는지 콘솔에서 되짚을 수 있게 했다. 청구가 걸린 숫자라 집계는 코드가 소유한다. 엔드포인트 두 개를 비교할 때는 동시에 돌리지 않는다. 같은 카드를 나눠 쓰면 모델이 아니라 경합을 재게 되고 느린 쪽이 자원을 더 오래 쥐어 왜곡이 대칭도 아니다. 한 번에 하나씩 녹화해 토큰이 도착한 시각을 남겨 두었다가 나중에 겹쳐 재생하고, 그 재생을 프레임 단위로 다시 그려 영상으로 뽑는다.",
       "lang": "TypeScript",
-      "date": "2026.08.14",
+      "date": "2026.08.23",
       "private": true,
       "tags": [
         "#멀티모달게이트웨이",
         "#계량원장",
-        "#OpenAI호환"
+        "#AB비교재생"
       ],
-      "q": "gateway openai compatible multimodal metering 계량 원장 콘솔 카탈로그 토큰"
+      "q": "gateway openai compatible multimodal metering 계량 원장 콘솔 카탈로그 토큰 ab 비교 재생 replay 순차 녹화 영상 export 레이트리밋"
     },
     {
       "fam": "tech-media",
