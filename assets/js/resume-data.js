@@ -84,7 +84,7 @@ export const ko = {
       role: "AI 플랫폼 기획 · 설계 · 리딩",
       where: "서울 역삼",
       intro:
-        "추론 · 학습 · 에이전트 플랫폼 세 축을 기획하고 설계하며 팀을 이끕니다. 동시에 한국어 모델 정렬, 온디바이스 경량화, 서빙 압축을 직접 학습하고 측정해 공개 모델 34종과 논문 5편으로 냈습니다.",
+        "추론 · 학습 · 에이전트 플랫폼 세 축을 기획하고 설계하며 팀을 이끕니다. 동시에 한국어 모델 정렬, 온디바이스 경량화, 서빙 압축을 직접 학습하고 측정해 공개 모델 34종과 논문 4편으로 냈습니다.",
       projects: [
         {
           name: "AI 플랫폼 3종 기획 · 아키텍처 설계 · 리딩",
@@ -116,14 +116,6 @@ export const ko = {
             "0.6B 교사 모델을 22M · 109M 학생으로 지식 증류해 NDCG@10을 44.37 → 75.26으로 끌어올리고, GPU 없이 CPU에서 도는 스킬 라우터 임베딩을 확보",
             "int4 · g16 양자화로 17.07MB까지 줄이면서 NDCG 75.14로 fp32와 통계적 동률을 유지 (109M 모델은 교사 성능의 98.0%)",
             "임베딩 테이블은 사실상 무손실인데 FFN이 취약하다는 모듈별 지도를 4개 임베더 계열에서 측정해 논문화"
-          ]
-        },
-        {
-          name: "온디바이스 의도추론 SLM과 연합학습 광고 (PLAT.AID)",
-          bullets: [
-            "421MB 한국어 문장 임베더를 1.92MB 정적 임베딩으로 자기증류해 220배 축소하면서 교사 성능의 78~87%를 유지",
-            "3MiB 페이로드 · 20ms 예산 안에서 iPhone Tier-0 p95 3.67ms를 실측하고, 원문 · 임베딩 · 식별자가 단말을 떠나지 않도록 타입 기반 출구 경계를 설계해 유출 카나리 7/7 미검출을 확인",
-            "연합학습 개인화 헤드(FedPer)로 클라이언트 30% 이탈에도 수렴을 유지하고, 실제 한국어 커머스 리뷰 22,900건으로 상품명 top-5 75.0%를 검증"
           ]
         },
         {
@@ -316,6 +308,14 @@ export const ko = {
         ]
       },
       {
+        name: "온디바이스 · 프라이버시",
+        items: [
+          "421MB 한국어 문장 임베더를 1.92MB로 자기증류해 단말 안에서 상업 의도를 추론하는 검색 시스템(220배 축소, 교사 성능 78~87% 유지)",
+          "원문 · 임베딩 · 식별자가 단말을 떠나지 않도록 타입 기반 출구 경계를 설계하고 유출 카나리 7/7 미검출을 확인",
+          "연합학습 개인화 헤드로 클라이언트 30%가 이탈해도 수렴을 유지하고, 실제 한국어 커머스 리뷰 22,900건으로 상품명 top-5 75.0%를 검증"
+        ]
+      },
+      {
         name: "비전",
         items: [
           "검사원마다 다르던 판정 기준을 통일하는 24시간 제조 비전 검사 AI",
@@ -356,7 +356,7 @@ export const ko = {
 
   research: {
     intro:
-      "ThakiCloud에서 직접 학습하고 측정한 결과를 논문으로 냅니다. 모두 단독 저자이고, 측정값과 재현 코드가 붙어 있습니다.",
+      "직접 학습하고 측정한 결과를 논문으로 냅니다. 모두 단독 저자이고, 측정값과 재현 코드가 붙어 있습니다. 4편은 ThakiCloud 작업이고 1편은 개인 연구입니다.",
     items: [
       {
         title: "Off-Target Effects of Response-Style Alignment in a Korean 27B Language Model",
@@ -367,7 +367,7 @@ export const ko = {
       {
         title:
           "On-Device Commercial Intent Retrieval Under Size, Latency, and Privacy Constraints: A 3 MiB Retrieval System with Typed Egress Boundaries",
-        status: "arXiv 제출 (공개 예정)",
+        status: "arXiv 제출 (공개 예정) · 개인 연구",
         note: "3MiB · 20ms · 무유출이라는 세 제약을 동시에 걸었을 때 검색 품질이 어디서 비용을 내는지 실기기에서 측정"
       },
       {
@@ -505,7 +505,7 @@ export const en = {
       role: "AI Platform Strategy, Architecture & Team Lead",
       where: "Seoul, South Korea",
       intro:
-        "Leads strategy, architecture, and delivery across three AI platforms, and personally trains and measures the Korean alignment, on-device compression, and serving-quantization work behind 34 open model releases and 5 papers.",
+        "Leads strategy, architecture, and delivery across three AI platforms, and personally trains and measures the Korean alignment, on-device compression, and serving-quantization work behind 34 open model releases and 4 papers.",
       projects: [
         {
           name: "Led strategy and architecture for three AI platforms",
@@ -536,14 +536,6 @@ export const en = {
             "Distilled a 0.6B teacher into 22M and 109M students, raising NDCG@10 from 44.37 to 75.26 and putting the skill-router embedder on CPU with no GPU",
             "Quantized to 17.07MB (int4/g16) while holding NDCG at 75.14, statistically tied with fp32; the 109M student retains 98.0% of teacher quality",
             "Measured a module-level map across four embedder families showing embedding tables quantize nearly free while FFNs are fragile, and published it"
-          ]
-        },
-        {
-          name: "On-device intent inference and federated advertising (PLAT.AID)",
-          bullets: [
-            "Self-distilled a 421MB Korean sentence embedder into a 1.92MB static embedding, 220x smaller while keeping 78-87% of teacher quality",
-            "Held a 3MiB payload and 20ms budget with measured p95 of 3.67ms on iPhone, and designed typed egress boundaries so no raw text, embedding, or identifier leaves the device (7/7 exfiltration canaries undetected)",
-            "Kept federated convergence (FedPer personal head) under 30% client dropout and validated top-5 product-name retrieval at 75.0% on 22,900 real Korean commerce reviews"
           ]
         },
         {
@@ -736,6 +728,13 @@ export const en = {
         ]
       },
       {
+        name: "On-device & Privacy",
+        items: [
+          "A retrieval system that infers commercial intent on-device, self-distilled from a 421MB Korean embedder to 1.92MB (220x smaller, 78-87% of teacher quality)",
+          "Typed egress boundaries so no raw text, embedding, or identifier leaves the device, verified with 7/7 exfiltration canaries undetected"
+        ]
+      },
+      {
         name: "Vision",
         items: [
           "24/7 manufacturing vision inspection AI that unifies judgment criteria that used to vary by inspector",
@@ -774,7 +773,7 @@ export const en = {
 
   research: {
     intro:
-      "Sole-authored papers from work trained and measured in-house, each with reported numbers and reproduction code.",
+      "Sole-authored, with reported numbers and reproduction code; four from ThakiCloud, one independent.",
     items: [
       {
         title: "Off-Target Effects of Response-Style Alignment in a Korean 27B Language Model",
@@ -785,7 +784,7 @@ export const en = {
       {
         title:
           "On-Device Commercial Intent Retrieval Under Size, Latency, and Privacy Constraints: A 3 MiB Retrieval System with Typed Egress Boundaries",
-        status: "arXiv (submitted)",
+        status: "arXiv (submitted) · independent research",
         note: "Where a 3 MiB payload, 20ms budget, and a no-egress boundary each cost retrieval quality, measured on real devices"
       },
       {
@@ -808,7 +807,7 @@ export const en = {
 
   models: {
     intro:
-      "Alongside them, 34 trained and compressed models are released under the <a href=\"https://huggingface.co/ThakiCloud\">HuggingFace ThakiCloud</a> organization across five collections: Human-KO, Satoori-KO, SKILLRET-Edge, vocabulary pruning, and serving quantization.",
+      "Alongside them, 34 trained and compressed models on <a href=\"https://huggingface.co/ThakiCloud\">HuggingFace ThakiCloud</a>: Human-KO, Satoori-KO, SKILLRET-Edge, vocabulary pruning, and serving quantization.",
     groups: [
       {
         name: "Human-KO, Korean style-aligned 27B (6)",
