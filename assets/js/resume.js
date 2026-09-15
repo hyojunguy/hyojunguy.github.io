@@ -13,6 +13,8 @@ const L = isEn
       summary: "Summary",
       skills: "Core Technical Skills",
       exp: "Professional Experience",
+      pubs: "Publications",
+      models: "Open Model Releases",
       rnd: "Systems Built Independently",
       edu: "Education",
       foot: "References and detailed case studies available on request."
@@ -21,6 +23,8 @@ const L = isEn
       summary: "핵심 역량",
       skills: "보유 기술",
       exp: "경력 사항",
+      pubs: "논문",
+      models: "공개 모델",
       rnd: "직접 구현한 시스템",
       edu: "학력",
       foot: "상세 사례와 실측 자료는 요청 시 제공합니다."
@@ -48,10 +52,21 @@ if (isEn) {
     const i = order.findIndex((k) => n.toLowerCase().includes(k));
     return i < 0 ? 99 : i;
   };
-  d.rnd.groups = [...d.rnd.groups].sort((a, b) => rank(a.name) - rank(b.name)).slice(0, 3);
-  d.rnd.groups.forEach((g) => (g.items = g.items.slice(0, 2)));
-  // A4 두 장(인쇄영역 546mm)에 맞추려면 회사당 대표 프로젝트 2건이 상한이다.
-  d.experience.forEach((e) => (e.projects = e.projects.slice(0, 2)));
+  /* 영문 두 장에서는 논문과 공개 모델이 독립 연구 목록의 역할을 대신한다.
+     rank() 는 한국어판 정렬에 그대로 쓰이므로 남겨 둔다. */
+  void rank;
+  d.rnd.groups = [];
+  /* 논문과 공개 모델이 들어오면서 지면이 늘었다. 두 장을 지키려면 현직 4건 · 과거 2건,
+     불릿은 항목당 2줄이 상한이다. 공개 모델은 그룹 제목만 남긴다. 전량은 한국어판이 담는다. */
+  d.experience.forEach((e, i) => {
+    e.projects = e.projects.slice(0, i === 0 ? 4 : 1);
+    e.projects.forEach((pj) => (pj.bullets = pj.bullets.slice(0, i === 0 ? 2 : 1)));
+  });
+  /* 공개 모델은 별도 섹션 대신 논문 머리글 한 줄로 접는다. 지면 2장을 지키려면
+     섹션 하나를 통째로 다는 것보다 이 편이 싸고, 컬렉션 이름은 그대로 남는다. */
+  d.research.intro += " " + d.models.intro;
+  d.models.groups = [];
+  d.research.items = d.research.items.map((r) => ({ ...r, note: "" }));
 }
 
 const head = `
@@ -61,7 +76,7 @@ const head = `
       <p class="role">${m.title}</p>
       <p class="meta">
         <b>${m.email}</b> · ${m.location}<br>
-        ${m.github} · ${m.blog}
+        ${m.github} · ${m.blog}${m.hf ? ` · ${m.hf}` : ""}
       </p>
     </div>
     ${photo}
@@ -111,7 +126,7 @@ const experience = `
       .join("")}
   </section>`;
 
-const rnd = `
+const rnd = !d.rnd.groups.length ? "" : `
   <section class="sec">
     <h2>${L.rnd}</h2>
     ${d.rnd.intro ? `<p class="rnd-i">${d.rnd.intro}</p>` : ""}
@@ -126,6 +141,37 @@ const rnd = `
       .join("")}
   </section>`;
 
+const pubs = `
+  <section class="sec">
+    <h2>${L.pubs}</h2>
+    ${d.research.intro ? `<p class="rnd-i">${d.research.intro}</p>` : ""}
+    ${d.research.items
+      .map(
+        (r) => `
+      <div class="pub">
+        <b>${r.url ? `<a href="${r.url}">${r.title}</a>` : r.title}</b>
+        <i>${r.status}</i>
+        ${r.note ? `<span>${r.note}</span>` : ""}
+      </div>`
+      )
+      .join("")}
+  </section>`;
+
+const models = !d.models.groups.length ? "" : `
+  <section class="sec">
+    <h2>${L.models}</h2>
+    ${d.models.intro ? `<p class="rnd-i">${d.models.intro}</p>` : ""}
+    ${d.models.groups
+      .map(
+        (g) => `
+      <div class="rgroup">
+        <b>${g.name}</b>
+        ${g.items.length ? `<ul>${g.items.map((i) => `<li>${i}</li>`).join("")}</ul>` : ""}
+      </div>`
+      )
+      .join("")}
+  </section>`;
+
 const education = `
   <section class="sec">
     <h2>${L.edu}</h2>
@@ -135,7 +181,7 @@ const education = `
   </section>`;
 
 document.getElementById("sheet").innerHTML =
-  head + summary + skills + experience + rnd + education +
+  head + summary + skills + experience + pubs + models + rnd + education +
   `<p class="rfoot"><span>${L.foot}</span><span>${m.updated}</span></p>`;
 
 /* 화면용 도구막대. 인쇄에서는 CSS 가 숨긴다. */

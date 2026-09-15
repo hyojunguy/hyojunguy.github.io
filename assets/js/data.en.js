@@ -26,7 +26,7 @@ export const profile = {
 
 export const stats = [
   { value: "19", unit: "yrs", label: "Building since 2007, no gaps" },
-  { value: "608", unit: "posts", label: "Published across a three-language tech blog" },
+  { value: "1,328", unit: "posts", label: "Published across a Korean and English tech blog" },
   { value: "173", unit: "repos", label: "Built and maintained personally" },
   { value: "42", unit: "systems", label: "Finished builds with measured results" }
 ];
@@ -117,7 +117,7 @@ export const work = [
     org: "ThakiCloud",
     title: "Tech blog operation and a multilingual publishing pipeline",
     summary:
-      "I launched and run tech blogs in Korean, English and Arabic. 2,260 posts written so far, 608 published.",
+      "I launched and run tech blogs in Korean and English. 2,260 posts written so far, 1,328 published.",
     problem:
       "Platform products sell on technical trust. Written entirely by hand, a technical blog tops out at one or " +
       "two posts a week, so neither search traffic nor brand ever compounds.",
@@ -126,11 +126,11 @@ export const work = [
       "pipeline. Content is split across 11 categories such as LLMOps, agent operations, research reviews and " +
       "tutorials, with quality gates enforced in code rather than by reminders.",
     result:
-      "2,260 posts written since May 2024, 608 currently published: 307 in Korean and 301 in English. " +
-      "All three languages are held to the same quality bar.",
+      "2,260 posts written since May 2024, 1,328 currently published: 664 in Korean and 664 in English. " +
+      "A URL ratchet in CI keeps published addresses alive, and both languages are held to the same quality bar.",
     metrics: [
-      { k: "Written · published", v: "2,260 · 608 live" },
-      { k: "Languages", v: "Korean · English · Arabic" },
+      { k: "Written · published", v: "2,260 · 1,328 live" },
+      { k: "Languages", v: "Korean · English" },
       { k: "Categories", v: "11" }
     ],
     stack: ["Jekyll", "GitHub Actions", "LLM pipeline", "i18n", "SEO"],

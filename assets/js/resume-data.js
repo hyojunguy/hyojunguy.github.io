@@ -10,14 +10,16 @@ export const ko = {
     email: "hyojunguy@gmail.com",
     github: "github.com/hyojunguy",
     blog: "thakicloud.com/tech-blog",
-    updated: "2026-08"
+    hf: "huggingface.co/ThakiCloud",
+    updated: "2026-09"
   },
 
   summary: [
     "2007년부터 공백 없이 19년째 컴퓨터 비전, 추천, 생성 AI, 엔터프라이즈 AI 플랫폼을 만들어 온 AI 시스템 엔지니어입니다.",
     "현재 ThakiCloud에서 추론, 학습, 에이전트 자동화 세 플랫폼의 제품 전략과 아키텍처를 설계하고 팀을 이끕니다.",
+    "한국어 27B 정렬, 온디바이스 경량화, 서빙 양자화를 직접 학습하고 측정해 HuggingFace 공개 모델 34종과 단독 저자 논문 5편(arXiv)을 냈습니다.",
     "생성 AI 콘텐츠 플랫폼을 직접 창업해 일본·대만·홍콩 3개 시장에서 유료 사용자 5만 명, 누적 매출 4억 원을 만든 경험이 있습니다.",
-    "한국어·영어·아랍어 3개 언어 기술 블로그를 운영하며 2,260편을 쓰고 608편을 공개했습니다. 동작하는 구현 사례 42건을 독립 연구로 축적했습니다.",
+    "한국어·영어 기술 블로그를 운영하며 2,260편을 쓰고 1,328편을 공개했습니다. 동작하는 구현 사례 42건을 독립 연구로 축적했습니다.",
     "모델부터 인프라, 제품까지 직접 만들어 본 경험을 바탕으로 방향을 정하고, 필요한 부분은 지금도 직접 구현합니다."
   ],
 
@@ -82,27 +84,69 @@ export const ko = {
       role: "AI 플랫폼 기획 · 설계 · 리딩",
       where: "서울 역삼",
       intro:
-        "추론 · 학습 · 에이전트 플랫폼 세 축을 기획하고 설계하며 팀을 이끌고 있습니다. 기술 블로그 발행 파이프라인도 함께 운영합니다.",
+        "추론 · 학습 · 에이전트 플랫폼 세 축을 기획하고 설계하며 팀을 이끕니다. 동시에 한국어 모델 정렬, 온디바이스 경량화, 서빙 압축을 직접 학습하고 측정해 공개 모델 34종과 논문 5편으로 냈습니다.",
       projects: [
         {
           name: "AI 플랫폼 3종 기획 · 아키텍처 설계 · 리딩",
           bullets: [
             "추론 · 학습 · 에이전트 자동화 세 축의 제품 방향과 기본 아키텍처를 설계하고, 실험 우선순위를 정해 개발팀을 리딩",
-            "Kubernetes GPU 스케줄링 · 멀티테넌시 · GitOps 배포 체계의 설계 방향을 잡고 구축을 총괄"
+            "Kubernetes GPU 스케줄링 · 멀티테넌시 · GitOps 배포 체계의 설계 방향을 잡고 구축을 총괄",
+            "에이전트 빌더를 사내 시스템과 연동해 실제 업무를 에이전트로 조립 · 실행하는 경로를 직접 설계하고 구현"
           ]
         },
         {
-          name: "에이전트 빌더 사내 시스템 연동 (직접 구현)",
+          name: "한국어 27B 응답 스타일 정렬과 부작용 교정 (Human-KO)",
           bullets: [
-            "에이전트 빌더를 사내 시스템과 연동해 실제 업무를 에이전트로 조립·실행하는 경로를 직접 설계하고 구현",
-            "모델 양자화(NVFP4 · W4A16)를 직접 담당해 서빙 가능 여부까지 검증한 뒤 배포 대상으로 확정"
+            "Qwen3.8-27B를 LoRA SFT로 정렬해 불릿 사용률 97.3% → 0.6%, 중앙 응답 길이 1,329자 → 152자로 줄이고 사람다움 선호 승률을 1.1% → 94.9%(n=175)로 끌어올림. 학습 데이터를 2,992건에서 선별 519건으로 줄였을 때 비로소 모델이 움직였음",
+            "스타일 정렬이 목표하지 않은 행동까지 바꾼다는 것을 발견하고 DPO로 교정: KoBBQ 모호 맥락 기권율 81.5% → 92.8%, 고정관념 응답 16.1% → 6.7%, KMMLU는 오히려 +4.2pp",
+            "전체 가중치와 서빙 양자화본, 안전성 · 금융 변형까지 HuggingFace에 공개하고 결과를 arXiv 논문으로 발표"
+          ]
+        },
+        {
+          name: "한국어 방언 모델과 합성데이터 평가 함정 규명 (Satoori-KO)",
+          bullets: [
+            "5개 권역 3개 축 1,000문항 방언 벤치마크(KoDialectBench)를 만들고 실데이터 · 합성데이터 두 갈래로 27B를 학습해 공개",
+            "평가 지표의 채점 어휘가 합성 데이터 생성 어휘와 겹치면 성능이 부풀려진다는 것을 정량화: 구성을 분리한 대조군에서 방언성 회복이 91.8% → 8.1%로 붕괴하는 반면 파이프라인 독립 지표는 거의 움직이지 않음",
+            "오염 게이트를 코드로 강제해 홀드아웃 누수 17/400(4.2%)과 지문 생성 버그를 학습 전에 차단"
+          ]
+        },
+        {
+          name: "에이전트 스킬 검색 임베딩 경량화 (SKILLRET-Edge)",
+          bullets: [
+            "0.6B 교사 모델을 22M · 109M 학생으로 지식 증류해 NDCG@10을 44.37 → 75.26으로 끌어올리고, GPU 없이 CPU에서 도는 스킬 라우터 임베딩을 확보",
+            "int4 · g16 양자화로 17.07MB까지 줄이면서 NDCG 75.14로 fp32와 통계적 동률을 유지 (109M 모델은 교사 성능의 98.0%)",
+            "임베딩 테이블은 사실상 무손실인데 FFN이 취약하다는 모듈별 지도를 4개 임베더 계열에서 측정해 논문화"
+          ]
+        },
+        {
+          name: "온디바이스 의도추론 SLM과 연합학습 광고 (PLAT.AID)",
+          bullets: [
+            "421MB 한국어 문장 임베더를 1.92MB 정적 임베딩으로 자기증류해 220배 축소하면서 교사 성능의 78~87%를 유지",
+            "3MiB 페이로드 · 20ms 예산 안에서 iPhone Tier-0 p95 3.67ms를 실측하고, 원문 · 임베딩 · 식별자가 단말을 떠나지 않도록 타입 기반 출구 경계를 설계해 유출 카나리 7/7 미검출을 확인",
+            "연합학습 개인화 헤드(FedPer)로 클라이언트 30% 이탈에도 수렴을 유지하고, 실제 한국어 커머스 리뷰 22,900건으로 상품명 top-5 75.0%를 검증"
+          ]
+        },
+        {
+          name: "서빙 양자화 · 압축과 측정 신뢰도",
+          bullets: [
+            "텍스트 · MoE · 비전언어 모델에 NVFP4 · W4A16 · MXFP4 · GPTQ · AWQ를 적용하고 MoE 프루닝까지 검증해 서빙 가능한 것만 공개",
+            "서빙 설정만 바꿔 단일 스트림 18.8배 · 포화 17.9배 차이를 실측해 플랫폼 기본값 문제를 제품 이슈로 제기",
+            "같은 레시피를 다시 빌드하기만 해도 GSM8K에서 3.56pp가 흔들린다는 노이즈 바닥을 측정해, 1대1 체크포인트 비교만으로는 실재하지 않는 레시피 효과를 만들어낼 수 있음을 보이고 데이터셋으로 공개"
+          ]
+        },
+        {
+          name: "학습 파이프라인과 에이전트 트래젝토리 학습",
+          bullets: [
+            "Kubeflow 기반 학습 플랫폼에 SFT · CPT · DPO · GRPO · GKD 5종과 학습 체인 6종을 얹어 사내 파인튜닝 작업의 공통 백본으로 운영",
+            "에이전트 실행 기록을 학습 데이터로 바꾸는 파이프라인을 만들고, 툴콜 턴 감독 비율을 13% → 100%로 올려 홀드아웃 툴 실행을 41/52 → 52/52로 개선",
+            "오라클 검증 기반 선호쌍 생성기를 Rust로 구현해 거절 데이터 혼합의 트레이드오프(거절 정확도 +82.7pp, 호출 정확도 −6.0pp)를 정량화"
           ]
         },
         {
           name: "기술 블로그 운영과 다국어 발행 파이프라인",
           bullets: [
-            "초안 생성부터 사실 검증, 번역, 배포까지 이어지는 발행 파이프라인을 구축해 2024년 5월부터 2,260편을 작성하고 608편(한국어 307 · 영어 301)을 공개 운영",
-            "11개 카테고리에 걸쳐 품질 게이트를 코드로 강제해 3개 언어를 동일 품질 기준으로 유지"
+            "초안 생성부터 사실 검증, 번역, 배포까지 이어지는 발행 파이프라인을 구축해 2024년 5월부터 2,260편을 작성하고 1,328편(한국어 664 · 영어 664)을 공개 운영",
+            "11개 카테고리에 걸쳐 품질 게이트를 코드로 강제하고, 한 번 게시한 주소는 죽지 않도록 URL 래칫을 CI에 걸어 유지"
           ]
         }
       ]
@@ -310,6 +354,71 @@ export const ko = {
     ]
   },
 
+  research: {
+    intro:
+      "ThakiCloud에서 직접 학습하고 측정한 결과를 논문으로 냅니다. 모두 단독 저자이고, 측정값과 재현 코드가 붙어 있습니다.",
+    items: [
+      {
+        title: "Off-Target Effects of Response-Style Alignment in a Korean 27B Language Model",
+        status: "arXiv:2609.11291 (2026.09 공개)",
+        url: "https://arxiv.org/abs/2609.11291",
+        note: "한국어 응답 스타일만 정렬했는데 사회적 편향 질문의 기권과 금융 안내의 고지 행동까지 함께 바뀐다는 것을 두 개의 독립 검출기로 측정"
+      },
+      {
+        title:
+          "On-Device Commercial Intent Retrieval Under Size, Latency, and Privacy Constraints: A 3 MiB Retrieval System with Typed Egress Boundaries",
+        status: "arXiv 제출 (공개 예정)",
+        note: "3MiB · 20ms · 무유출이라는 세 제약을 동시에 걸었을 때 검색 품질이 어디서 비용을 내는지 실기기에서 측정"
+      },
+      {
+        title: "Rewrite Locality and Cache Provenance: Two Axes That Govern Prefix Reuse in Multi-Turn LLM Agents",
+        status: "arXiv 제출 (공개 예정)",
+        note: "멀티턴 에이전트의 프리픽스 캐시 재사용을 지배하는 것은 남은 히스토리 양이 아니라 가장 이른 무효화 지점과 서버의 캐시 상태임을 27개 엔진 조건에서 검증"
+      },
+      {
+        title: "Metric-Construction Coupling Inflates Measured Synthetic Dialect Recovery",
+        status: "arXiv 제출 (공개 예정)",
+        note: "합성 데이터의 생성 어휘와 평가 지표의 채점 어휘가 겹치면 방언 회복률이 부풀려진다는 것을 구성 분리 대조군으로 분리 측정"
+      },
+      {
+        title: "Where Post-Training Quantization Breaks Text Embedders: A Measured Map Across Four Embedder Families",
+        status: "arXiv 제출 (공개 예정)",
+        note: "임베딩 테이블 보호 · 모듈별 비트 배분 같은 통념을 4개 임베더 계열에서 검증해, 재구성 오차가 모듈 선택 지표로는 쓸 수 없음을 보임"
+      }
+    ]
+  },
+
+  models: {
+    intro:
+      "학습 · 압축한 모델을 <a href=\"https://huggingface.co/ThakiCloud\">HuggingFace ThakiCloud</a> 조직에 34종 공개해 운영합니다. 모델 카드에 측정 조건과 재현 절차를 함께 싣습니다.",
+    groups: [
+      {
+        name: "Human-KO · 한국어 스타일 정렬 27B (6종)",
+        items: [
+          "전체 가중치, 안전성 · 금융 변형, NVFP4 · W4A16 서빙 양자화본"
+        ]
+      },
+      {
+        name: "Satoori-KO · 한국어 방언 27B (2종)",
+        items: ["실데이터 갈래와 합성데이터 갈래를 나눠 공개해 지표 부풀림을 대조 가능하게 함"]
+      },
+      {
+        name: "SKILLRET-Edge · 에이전트 스킬 검색 임베더 (7종)",
+        items: ["22M · 109M 증류 모델과 int3 · int4 양자화본, 17MB에서 fp32와 동률"]
+      },
+      {
+        name: "Language Confusion Suppression · 어휘 프루닝 (6종)",
+        items: ["한국어 · 일본어 · 아랍어 · 베트남어 · 광둥어 · 대만 중국어 출력 어휘 억제 레시피"]
+      },
+      {
+        name: "Serving Quantization · 서빙 양자화 (13종)",
+        items: [
+          "Qwen3.8-27B · Qwen3-30B-A3B · Qwen3-Coder-30B-A3B · 비전언어 모델에 NVFP4 · W4A16 · MXFP4 · 프루닝 적용"
+        ]
+      }
+    ]
+  },
+
   education: [
     { school: "연세대학교", degree: "컴퓨터과학과 석사", year: "2007" }
   ]
@@ -324,14 +433,15 @@ export const en = {
     email: "hyojunguy@gmail.com",
     github: "github.com/hyojunguy",
     blog: "thakicloud.com/tech-blog",
-    updated: "2026-08"
+    hf: "huggingface.co/ThakiCloud",
+    updated: "2026-09"
   },
 
   summary: [
     "AI systems engineer with 19 years of continuous experience (2007-present) spanning computer vision, recommendation systems, generative AI, and enterprise AI platforms.",
     "Currently leads product strategy and architecture for three AI platforms at ThakiCloud: inference, training, and enterprise agent automation.",
-    "Founded and ran a generative AI content platform that reached 50K paying users and KRW 400M in cumulative revenue across Japan, Taiwan, and Hong Kong.",
-    "Runs a trilingual technical blog (Korean, English, Arabic), having written 2,260 posts since May 2024 with 608 currently public, backed by 32 working independent R&D implementations."
+    "Personally trains and measures Korean 27B alignment, on-device compression, and serving quantization, shipping 34 open models on HuggingFace and 5 sole-authored arXiv papers.",
+    "Founded and ran a generative AI content platform that reached 50K paying users and KRW 400M in cumulative revenue across Japan, Taiwan, and Hong Kong, and runs a bilingual technical blog with 1,328 published posts."
   ],
 
   skills: [
@@ -395,27 +505,68 @@ export const en = {
       role: "AI Platform Strategy, Architecture & Team Lead",
       where: "Seoul, South Korea",
       intro:
-        "Leads strategy, architecture, and delivery across three AI platforms, and operates the company's multilingual technical blog pipeline.",
+        "Leads strategy, architecture, and delivery across three AI platforms, and personally trains and measures the Korean alignment, on-device compression, and serving-quantization work behind 34 open model releases and 5 papers.",
       projects: [
         {
           name: "Led strategy and architecture for three AI platforms",
           bullets: [
-            "Set product direction and designed the core architecture for inference, training, and agent automation, and led the engineering team by setting experiment priorities",
-            "Directed the design of GPU scheduling, multi-tenancy, and GitOps deployment on Kubernetes, overseeing the build"
+            "Set product direction and core architecture for inference, training, and agent automation, and led the engineering team by setting experiment priorities",
+            "Directed GPU scheduling, multi-tenancy, and GitOps deployment on Kubernetes, and personally wired the agent builder into internal systems"
           ]
         },
         {
-          name: "Agent builder integration with internal systems (hands-on)",
+          name: "Korean 27B response-style alignment and its off-target effects (Human-KO)",
           bullets: [
-            "Personally designed and built the path that wires the agent builder into internal systems so real work can be assembled and executed as agents",
-            "Owned model quantization (NVFP4, W4A16) end to end, qualifying each build by whether it actually serves before it ships"
+            "LoRA-SFT aligned Qwen3.8-27B for Korean response style: bullet usage 97.3% to 0.6%, median length 1,329 to 152 characters, human-likeness win rate 1.1% to 94.9% (n=175); the model only moved once the training set was cut from 2,992 records to 519 curated ones",
+            "Found that style alignment shifts behaviors the objective never targeted, then corrected them with DPO: KoBBQ ambiguous-context abstention 81.5% to 92.8%, stereotyped answers 16.1% to 6.7%, with KMMLU up 4.2pp",
+            "Released full weights, serving quantizations, and safety/finance variants on HuggingFace; published the findings on arXiv"
+          ]
+        },
+        {
+          name: "Korean dialect model and a measurement trap in synthetic data (Satoori-KO)",
+          bullets: [
+            "Built KoDialectBench (1,000 items, 5 regions, 3 axes) and trained the 27B on both real and synthetic lanes",
+            "Quantified how a metric inflates results when its scoring inventory overlaps the synthetic-construction inventory: on a construction-disjoint arm, measured dialect recovery collapses from 91.8% to 8.1% while pipeline-independent metrics barely move",
+            "Enforced a contamination gate in code, catching 17/400 (4.2%) holdout leakage before training"
+          ]
+        },
+        {
+          name: "Compressing the agent skill-retrieval embedder (SKILLRET-Edge)",
+          bullets: [
+            "Distilled a 0.6B teacher into 22M and 109M students, raising NDCG@10 from 44.37 to 75.26 and putting the skill-router embedder on CPU with no GPU",
+            "Quantized to 17.07MB (int4/g16) while holding NDCG at 75.14, statistically tied with fp32; the 109M student retains 98.0% of teacher quality",
+            "Measured a module-level map across four embedder families showing embedding tables quantize nearly free while FFNs are fragile, and published it"
+          ]
+        },
+        {
+          name: "On-device intent inference and federated advertising (PLAT.AID)",
+          bullets: [
+            "Self-distilled a 421MB Korean sentence embedder into a 1.92MB static embedding, 220x smaller while keeping 78-87% of teacher quality",
+            "Held a 3MiB payload and 20ms budget with measured p95 of 3.67ms on iPhone, and designed typed egress boundaries so no raw text, embedding, or identifier leaves the device (7/7 exfiltration canaries undetected)",
+            "Kept federated convergence (FedPer personal head) under 30% client dropout and validated top-5 product-name retrieval at 75.0% on 22,900 real Korean commerce reviews"
+          ]
+        },
+        {
+          name: "Serving quantization, compression, and measurement integrity",
+          bullets: [
+            "Applied NVFP4, W4A16, MXFP4, GPTQ, and AWQ across text, MoE, and vision-language models, plus MoE pruning, shipping only builds that actually serve",
+            "Measured an 18.8x single-stream and 17.9x saturation gap driven by serving configuration alone, and raised it as a product defect",
+            "Measured a rebuild-noise floor of 3.56pp on GSM8K from rebuilding the same recipe, showing one-versus-one checkpoint comparison can manufacture a recipe effect; released as a public dataset"
+          ]
+        },
+        {
+          name: "Training pipeline and agent-trajectory fine-tuning",
+          bullets: [
+            "Ran a Kubeflow-based training platform with five methods (SFT, CPT, DPO, GRPO, GKD) and six training chains as the shared backbone for in-house fine-tuning",
+            "Built the pipeline that turns agent execution traces into training data; raising tool-call turn supervision from 13% to 100% lifted held-out tool execution from 41/52 to 52/52",
+            "Implemented an oracle-verified preference-pair generator in Rust and quantified the reject-mixing tradeoff (refusal accuracy +82.7pp, call accuracy -6.0pp)"
           ]
         },
         {
           name: "Built and operated a multilingual technical blog publishing pipeline",
           bullets: [
-            "Built an end-to-end pipeline from drafting through fact-checking, translation, and deployment, writing 2,260 posts since May 2024 with 608 currently public (307 Korean, 301 English)",
-            "Enforced quality gates in code across 11 categories to keep all three languages at the same quality bar"
+            "Built an end-to-end pipeline from drafting through fact-checking, translation, and deployment, writing 2,260 posts since May 2024 with 1,328 currently public (664 Korean, 664 English)",
+            "Enforced quality gates in code across 11 categories and a URL ratchet in CI so a published address never dies"
           ]
         }
       ]
@@ -617,6 +768,67 @@ export const en = {
           "Shipped a Korean document converter that never uploads files, as both a web and a desktop app (MIT, no-upload claim re-proven by 40 checks per run)",
           "Browser-side calculator for whether a model fits a given GPU and whether self-hosting beats the API"
         ]
+      }
+    ]
+  },
+
+  research: {
+    intro:
+      "Sole-authored papers from work trained and measured in-house, each with reported numbers and reproduction code.",
+    items: [
+      {
+        title: "Off-Target Effects of Response-Style Alignment in a Korean 27B Language Model",
+        status: "arXiv:2609.11291 (Sep 2026)",
+        url: "https://arxiv.org/abs/2609.11291",
+        note: "Aligning only Korean response style also shifts abstention on ambiguous social questions and disclosure in securities guidance, measured with two independent detectors"
+      },
+      {
+        title:
+          "On-Device Commercial Intent Retrieval Under Size, Latency, and Privacy Constraints: A 3 MiB Retrieval System with Typed Egress Boundaries",
+        status: "arXiv (submitted)",
+        note: "Where a 3 MiB payload, 20ms budget, and a no-egress boundary each cost retrieval quality, measured on real devices"
+      },
+      {
+        title: "Rewrite Locality and Cache Provenance: Two Axes That Govern Prefix Reuse in Multi-Turn LLM Agents",
+        status: "arXiv (submitted)",
+        note: "Prefix-cache reuse is governed by where the earliest invalidating edit lands and what cache state the server holds, not by how much history survives; verified across 27 engine cells"
+      },
+      {
+        title: "Metric-Construction Coupling Inflates Measured Synthetic Dialect Recovery",
+        status: "arXiv (submitted)",
+        note: "When a metric's scoring inventory overlaps the synthetic-construction inventory, measured dialect recovery inflates; isolated with a construction-disjoint control arm"
+      },
+      {
+        title: "Where Post-Training Quantization Breaks Text Embedders: A Measured Map Across Four Embedder Families",
+        status: "arXiv (submitted)",
+        note: "Tests textbook PTQ advice across four embedder families and shows reconstruction error fails as a standalone module-selection proxy"
+      }
+    ]
+  },
+
+  models: {
+    intro:
+      "Alongside them, 34 trained and compressed models are released under the <a href=\"https://huggingface.co/ThakiCloud\">HuggingFace ThakiCloud</a> organization across five collections: Human-KO, Satoori-KO, SKILLRET-Edge, vocabulary pruning, and serving quantization.",
+    groups: [
+      {
+        name: "Human-KO, Korean style-aligned 27B (6)",
+        items: ["Full weights, safety and finance variants, and NVFP4/W4A16 serving quantizations"]
+      },
+      {
+        name: "Satoori-KO, Korean dialect 27B (2)",
+        items: ["Real-data and synthetic-data lanes released separately so the inflation effect stays inspectable"]
+      },
+      {
+        name: "SKILLRET-Edge, agent skill-retrieval embedders (7)",
+        items: ["22M and 109M distilled students plus int3/int4 builds, tied with fp32 at 17MB"]
+      },
+      {
+        name: "Language Confusion Suppression, vocabulary pruning (6)",
+        items: ["Output-vocabulary suppression recipes for Korean, Japanese, Arabic, Vietnamese, Cantonese, and Taiwanese Chinese"]
+      },
+      {
+        name: "Serving quantization (13)",
+        items: ["NVFP4, W4A16, MXFP4, and pruning across Qwen3.8-27B, Qwen3-30B-A3B, Qwen3-Coder-30B-A3B, and vision-language models"]
       }
     ]
   },
