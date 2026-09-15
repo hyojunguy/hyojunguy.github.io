@@ -119,6 +119,14 @@ export const ko = {
           ]
         },
         {
+          name: "추론 가속과 FP4 커널 경로 검증",
+          bullets: [
+            "자체 NVFP4 양자화본에 블록 확산 방식 투기적 디코딩(DFlash2) 드래프터를 얹어 단일 스트림 디코딩을 137.5 → 458.5 tok/s(3.33배)로 끌어올림. 코드 5.10배 · 추론 3.80배 · 대화 2.35배로 프롬프트 종류마다 이득이 갈림",
+            "234k 토큰 긴 컨텍스트에서 프리픽스 캐시 수정과 드래프터 효과를 3-arm으로 분해해 두 효과가 직교함을 확인: 프리필 14.70초 → 0.76초, 디코딩 1.85배, 64토큰 응답 체감 15.32초 → 1.09초",
+            "FP4 양자화 툴체인 4종이 실제로는 bf16으로 역양자화해 곱한다는 것을 커널 디스패치 가로채기로 잡아내고, 디스패치 증거 없이는 속도 수치를 인용하지 못하게 게이트를 걸음(torch.compile 없이는 NVFP4 단독 이득이 0.97배로 사라짐)"
+          ]
+        },
+        {
           name: "서빙 양자화 · 압축과 측정 신뢰도",
           bullets: [
             "텍스트 · MoE · 비전언어 모델에 NVFP4 · W4A16 · MXFP4 · GPTQ · AWQ를 적용하고 MoE 프루닝까지 검증해 서빙 가능한 것만 공개",
@@ -520,6 +528,14 @@ export const en = {
             "LoRA-SFT aligned Qwen3.8-27B for Korean response style: bullet usage 97.3% to 0.6%, median length 1,329 to 152 characters, human-likeness win rate 1.1% to 94.9% (n=175); the model only moved once the training set was cut from 2,992 records to 519 curated ones",
             "Found that style alignment shifts behaviors the objective never targeted, then corrected them with DPO: KoBBQ ambiguous-context abstention 81.5% to 92.8%, stereotyped answers 16.1% to 6.7%, with KMMLU up 4.2pp",
             "Released full weights, serving quantizations, and safety/finance variants on HuggingFace; published the findings on arXiv"
+          ]
+        },
+        {
+          name: "Inference acceleration and FP4 kernel-path verification",
+          bullets: [
+            "Added a block-diffusion speculative-decoding drafter (DFlash2) on top of my own NVFP4 quantization, lifting single-stream decode from 137.5 to 458.5 tok/s (3.33x), with the gain varying by prompt type (code 5.10x, reasoning 3.80x, chat 2.35x)",
+            "Decomposed a prefix-cache fix and the drafter into three arms on a 234k-token context and showed the two effects are orthogonal: prefill 14.70s to 0.76s, decode 1.85x, end-user latency 15.32s to 1.09s",
+            "Caught four FP4 quantization toolchains silently dequantizing to bf16 before the matmul by intercepting kernel dispatch, and gated speed claims on dispatch evidence from that run (NVFP4 alone is 0.97x without torch.compile)"
           ]
         },
         {

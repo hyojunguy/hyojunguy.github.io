@@ -181,7 +181,9 @@ const education = `
   </section>`;
 
 document.getElementById("sheet").innerHTML =
-  head + summary + skills + experience + pubs + models + rnd + education +
+  /* 보유 기술은 경력·논문 뒤로 뺀다. 첫 장에서 읽혀야 하는 것은 기술 목록이 아니라
+     무엇을 만들고 무엇을 측정했는가다. */
+  head + summary + experience + pubs + models + rnd + skills + education +
   `<p class="rfoot"><span>${L.foot}</span><span>${m.updated}</span></p>`;
 
 /* 화면용 도구막대. 인쇄에서는 CSS 가 숨긴다. */
