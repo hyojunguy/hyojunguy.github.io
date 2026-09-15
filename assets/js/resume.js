@@ -66,6 +66,13 @@ if (isEn) {
      섹션 하나를 통째로 다는 것보다 이 편이 싸고, 컬렉션 이름은 그대로 남는다. */
   d.research.intro += " " + d.models.intro;
   d.models.groups = [];
+  /* 보유 기술은 뒤로 밀린 섹션이라 두 장 예산에서 먼저 양보한다. 그룹은 유지하고
+     각 그룹의 대표 항목만 남긴다(ATS 키워드는 앞쪽 항목에 몰려 있다). */
+  const skillOrder = ["AI Strategy", "Training", "Inference", "Platform"];
+  d.skills = skillOrder
+    .map((k) => d.skills.find((g) => g.group.startsWith(k)))
+    .filter(Boolean)
+    .map((g) => ({ ...g, items: g.items.slice(0, 8) }));
   d.research.items = d.research.items.map((r) => ({ ...r, note: "" }));
 }
 

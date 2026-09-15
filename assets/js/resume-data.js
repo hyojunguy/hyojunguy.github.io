@@ -5,7 +5,7 @@ export const ko = {
   meta: {
     name: "한효정",
     nameEn: "Hyojung Han",
-    title: "AI Systems Engineer",
+    title: "AI 전략 · 플랫폼 리드",
     location: "서울시 송파구 잠실동",
     email: "hyojunguy@gmail.com",
     github: "github.com/hyojunguy",
@@ -15,15 +15,23 @@ export const ko = {
   },
 
   summary: [
-    "2007년부터 공백 없이 19년째 컴퓨터 비전, 추천, 생성 AI, 엔터프라이즈 AI 플랫폼을 만들어 온 AI 시스템 엔지니어입니다.",
-    "현재 ThakiCloud에서 추론, 학습, 에이전트 자동화 세 플랫폼의 제품 전략과 아키텍처를 설계하고 팀을 이끕니다.",
-    "한국어 27B 정렬, 온디바이스 경량화, 서빙 양자화를 직접 학습하고 측정해 HuggingFace 공개 모델 34종과 단독 저자 논문 5편(arXiv)을 냈습니다.",
-    "생성 AI 콘텐츠 플랫폼을 직접 창업해 일본·대만·홍콩 3개 시장에서 유료 사용자 5만 명, 누적 매출 4억 원을 만든 경험이 있습니다.",
-    "한국어·영어 기술 블로그를 운영하며 2,260편을 쓰고 1,328편을 공개했습니다. 동작하는 구현 사례 42건을 독립 연구로 축적했습니다.",
-    "모델부터 인프라, 제품까지 직접 만들어 본 경험을 바탕으로 방향을 정하고, 필요한 부분은 지금도 직접 구현합니다."
+    "2007년부터 공백 없이 19년째 모델과 인프라, 제품을 직접 만들어 온 엔지니어입니다. 현재 ThakiCloud에서 추론 · 학습 · 에이전트 자동화 세 플랫폼의 전략과 아키텍처를 책임지고 개발팀을 이끕니다.",
+    "AI 의사결정에서 가장 비싼 실수는 틀린 숫자를 믿는 것이라고 봅니다. 같은 레시피를 다시 빌드만 해도 3.56pp가 흔들리고, FP4 양자화 툴체인 4종이 실제로는 bf16으로 계산하며, 평가 지표가 합성 데이터와 겹치면 성능이 부풀려집니다. 이런 함정을 실측으로 잡아내고 판정을 사람의 약속이 아니라 코드 게이트에 맡겨 왔습니다.",
+    "AI 원가를 감이 아니라 측정으로 다룹니다. 서빙 설정 하나로 처리량이 18.8배, 동시성 구간에 따라 100만 출력 토큰 비용이 $17.43에서 $4.59로 갈리는 것을 재서 제품 결정으로 되돌렸습니다.",
+    "생성 AI 콘텐츠 플랫폼을 직접 창업해 일본 · 대만 · 홍콩 3개 시장에 출시하고 유료 사용자 5만 명, 누적 매출 4억 원을 만들었습니다. 기술 판단과 손익을 한 책상에서 져본 경험입니다.",
+    "안으로는 사내 AI 도구 마켓플레이스를 만들어 8개 팀이 함께 쓰는 공용 자산으로 키웠고, 밖으로는 단독 저자 논문 5편(arXiv) · 공개 모델 34종 · 기술 블로그 1,328편으로 검증받는 경로를 굴립니다.",
+    "방향을 정하는 자리에 있지만 지금도 직접 학습시키고 측정합니다. 무엇이 되고 무엇이 안 되는지는 해본 사람만 압니다."
   ],
 
   skills: [
+    {
+      group: "AI 전략 · 거버넌스",
+      items: [
+        "AI 원가 모델링 · TCO", "온프렘 · 클라우드 전환 판단", "벤더 · 모델 벤치마크 설계",
+        "측정 신뢰도 게이트", "안전성 · 편향 평가", "모델 · OSS 라이선스 검토",
+        "데이터 경계 · 프라이버시 설계", "멀티테넌시 · 감사 추적", "기술 로드맵 · 실험 우선순위"
+      ]
+    },
     {
       group: "에이전트 하네스 · 오케스트레이션",
       items: [
@@ -81,17 +89,33 @@ export const ko = {
     {
       org: "ThakiCloud",
       period: "2025.04 ~ 현재",
-      role: "AI 플랫폼 기획 · 설계 · 리딩",
+      role: "AI 플랫폼 전략 · 아키텍처 · 팀 리드",
       where: "서울 역삼",
       intro:
-        "추론 · 학습 · 에이전트 플랫폼 세 축을 기획하고 설계하며 팀을 이끕니다. 동시에 한국어 모델 정렬, 온디바이스 경량화, 서빙 압축을 직접 학습하고 측정해 공개 모델 34종과 논문 4편으로 냈습니다.",
+        "추론 · 학습 · 에이전트 플랫폼 세 축의 전략과 아키텍처를 책임지고 팀을 이끕니다. 전사 사업 전략 정본과 투자 실사 자료를 직접 쓰는 자리에 있으면서, 한국어 모델 정렬과 서빙 압축은 지금도 직접 학습하고 측정해 공개 모델 34종과 논문 4편으로 냈습니다.",
       projects: [
+        {
+          name: "전사 AI 전략 수립과 조직 운영",
+          bullets: [
+            "경영진 · 전사 리더를 독자로 하는 사업 전략 정본을 단독 작성해 7개 제품의 포지셔닝과 수직 통합 서사를 정의하고, 그 전략을 상시 규칙으로 코드에 박아 블로그 · 제안서 · 발표 자료가 같은 렌즈를 통과하도록 강제",
+            "AI 플랫폼 팀 7명의 리드로 추론서빙 · 학습플랫폼 · 양자화 · 증류 · 미터링 축별 단일 장애점을 근거로 12명 증원 계획서를 경영진에 제출하고 채용 · 온보딩 일정을 실행",
+            "투자 실사용 기술 데이터룸 9종과 기술 자가감사 8종을 직접 만들어 보안 Critical 0 · High 0 · Medium 2를 file:line 근거와 함께 제시하고, 아직 없는 것(라이선스 문서 · IP 양도 계약 · 조직도)은 없다고 적은 갭 리스트를 함께 냄"
+          ]
+        },
         {
           name: "AI 플랫폼 3종 기획 · 아키텍처 설계 · 리딩",
           bullets: [
             "추론 · 학습 · 에이전트 자동화 세 축의 제품 방향과 기본 아키텍처를 설계하고, 실험 우선순위를 정해 개발팀을 리딩",
             "Kubernetes GPU 스케줄링 · 멀티테넌시 · GitOps 배포 체계의 설계 방향을 잡고 구축을 총괄",
             "에이전트 빌더를 사내 시스템과 연동해 실제 업무를 에이전트로 조립 · 실행하는 경로를 직접 설계하고 구현"
+          ]
+        },
+        {
+          name: "전사 AI 도입 — 사내 툴 플랫폼과 교육",
+          bullets: [
+            "사내 AI 도구 마켓플레이스를 만들어 영업 · 기획 · 프론트 · 백엔드 · ML · QA · 디자인 8개 팀용 스킬 150종과 에이전트 14종을 패키징하고, 지금은 기여자 15명이 함께 유지하는 공용 자산으로 운영",
+            "영업 · 클라우드기술 · 기획 3개 팀의 AI 실무 교육 커리큘럼(팀당 11~13개 모듈)을 직접 설계하고 집필",
+            "대신증권 · KB생명 · 삼성전자 · 리벨리온 · 사우디 소버린 AI 클러스터 대상 기술 제안서와 피치 자료를 직접 작성"
           ]
         },
         {
@@ -282,7 +306,7 @@ export const ko = {
 
   rnd: {
     intro:
-      "비전, 신호 처리, 최적화, 추천처럼 제가 오래 다뤄 온 영역을 에이전트로 더 넓게 확장하며 직접 구현합니다. 무엇을 재야 답이 나오는지 이미 알기 때문에 논문을 읽는 자리에서 곧바로 실측 가능한 구현으로 넘어갑니다. 저장소 173개를 만들어 운영하며 그중 42건은 측정값이 붙은 완성 구현입니다.",
+      "AI가 한 사람의 산출량을 어디까지 끌어올리는지 제 손으로 시험한 기록입니다. 비전, 신호 처리, 최적화, 추천처럼 오래 다뤄 온 영역을 에이전트로 넓히며 저장소 173개를 운영하고, 그중 42건은 측정값이 붙은 완성 구현입니다. 무엇을 재야 답이 나오는지 알기 때문에 논문을 읽는 자리에서 곧바로 실측 가능한 구현으로 넘어갑니다.",
     groups: [
       {
         name: "최적화 · 스케줄링",
@@ -438,7 +462,7 @@ export const en = {
   meta: {
     name: "Hyojung Han",
     nameEn: "Hyojung Han",
-    title: "AI Systems Engineer",
+    title: "AI Strategy & Platform Lead",
     location: "Jamsil-dong, Songpa-gu, Seoul, South Korea",
     email: "hyojunguy@gmail.com",
     github: "github.com/hyojunguy",
@@ -448,13 +472,21 @@ export const en = {
   },
 
   summary: [
-    "AI systems engineer with 19 years of continuous experience (2007-present) spanning computer vision, recommendation systems, generative AI, and enterprise AI platforms.",
-    "Currently leads product strategy and architecture for three AI platforms at ThakiCloud: inference, training, and enterprise agent automation.",
-    "Personally trains and measures Korean 27B alignment, on-device compression, and serving quantization, shipping 34 open models on HuggingFace and 5 sole-authored arXiv papers.",
-    "Founded and ran a generative AI content platform that reached 50K paying users and KRW 400M in cumulative revenue across Japan, Taiwan, and Hong Kong, and runs a bilingual technical blog with 1,328 published posts."
+    "Engineer of 19 unbroken years (2007-present) across models, infrastructure, and products. Now owns the strategy and architecture of three AI platforms at ThakiCloud (inference, training, agent automation) and leads the engineering team that builds them.",
+    "Holds that the costliest mistake in AI decisions is trusting a wrong number: rebuilding the same recipe alone moves results 3.56pp, four FP4 toolchains silently compute in bf16, and a metric overlapping its synthetic data inflates the score. Catches these by measurement and hands the verdict to code gates, not to anyone's word.",
+    "Treats AI unit cost as something measured, not estimated: serving configuration alone swings throughput 18.8x, and concurrency moves the cost of 1M output tokens from $17.43 to $4.59. Both were measured and turned back into product decisions.",
+    "Founded a generative AI content platform, launched it across Japan, Taiwan, and Hong Kong, and grew it to 50K paying users and KRW 400M in revenue, carrying the technical call and the P&L on one desk. Inside the company, founded the internal AI tooling marketplace now shared by eight teams; outside it, 5 sole-authored arXiv papers, 34 open models, 1,328 blog posts."
   ],
 
   skills: [
+    {
+      group: "AI Strategy & Governance",
+      items: [
+        "AI Unit-Cost Modeling / TCO", "On-Prem vs Cloud Decisions", "Vendor & Model Benchmark Design",
+        "Measurement-Integrity Gates", "Safety & Bias Evaluation", "Model & OSS License Review",
+        "Data Boundary & Privacy Design", "Multi-Tenancy & Audit Trail", "Roadmap & Experiment Prioritization"
+      ]
+    },
     {
       group: "Agent Harness & Orchestration",
       items: [
@@ -515,13 +547,23 @@ export const en = {
       role: "AI Platform Strategy, Architecture & Team Lead",
       where: "Seoul, South Korea",
       intro:
-        "Leads strategy, architecture, and delivery across three AI platforms, and personally trains and measures the Korean alignment, on-device compression, and serving-quantization work behind 34 open model releases and 4 papers.",
+        "Owns strategy, architecture, and delivery across three AI platforms and leads the team that builds them. Writes the corporate strategy and the investor technical data room, and still trains and measures the models personally: 34 open releases and 4 papers.",
       projects: [
         {
-          name: "Led strategy and architecture for three AI platforms",
+          name: "Company AI strategy and team leadership",
           bullets: [
-            "Set product direction and core architecture for inference, training, and agent automation, and led the engineering team by setting experiment priorities",
-            "Directed GPU scheduling, multi-tenancy, and GitOps deployment on Kubernetes, and personally wired the agent builder into internal systems"
+            "Sole author of the corporate strategy document written for the executive team, defining the positioning of seven products and the vertical-integration thesis, then encoded that strategy as an always-on rule so every outward deliverable (blog, proposal, deck) passes through the same lens",
+            "Leads a 7-person AI Platform team; argued single-point-of-failure risk per axis (serving, training, quantization, distillation, metering) into a headcount plan to 12 submitted to the executive team, and ran the hiring and onboarding schedule",
+            "Built the investor technical data room (9 documents) and the technical self-audit (8 documents) personally: security Critical 0, High 0, Medium 2 with file:line evidence, shipped alongside an honest gap list of what does not yet exist",
+            "Set product direction and core architecture for inference, training, and agent automation, and directed GPU scheduling, multi-tenancy, and GitOps deployment on Kubernetes"
+          ]
+        },
+        {
+          name: "Company-wide AI adoption: internal tooling platform and training",
+          bullets: [
+            "Founded the internal AI tooling marketplace, packaging 150 skills and 14 agents for eight teams (sales, planning, frontend, backend, ML, QA, design, common); it is now maintained by 15 contributors as shared company infrastructure",
+            "Designed and wrote the hands-on AI training curricula for three departments (11-13 modules each)",
+            "Authored the technical proposals and pitch material for Daishin Securities, KB Life, Samsung Electronics, Rebellions, and a sovereign AI cluster program"
           ]
         },
         {
