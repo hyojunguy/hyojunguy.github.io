@@ -298,6 +298,8 @@ export const ko = {
       {
         name: "인프라 · 배포",
         items: [
+          "텍스트 · 이미지 · 음성 · 영상을 한 문으로 받아 토큰 · 장수 · 초 · 분이라는 서로 다른 과금 단위를 하나의 원장으로 정규화하는 OpenAI 호환 게이트웨이. 폴백은 이긴 호출만이 아니라 모든 시도를 기록해 라이브로 보여준다",
+          "같은 B200에서 동시성만 올려 1M 출력 토큰 비용이 $17.43에서 $4.59로 내려가는 구간을 실측",
           "복제본 3벌로는 못 잡는 데이터 부식(bit rot)을 온프렘 스토리지에서 실측",
           "스토리지 검증 도구를 자사 인프라에 먼저 겨눠 결함을 스스로 찾아내는 진단 하네스",
           "클라우드 대비 온프렘 전환의 손익분기점을 TCO로 계산",
@@ -726,6 +728,8 @@ export const en = {
       {
         name: "Infrastructure & Deployment",
         items: [
+          "An OpenAI-compatible gateway that takes text, image, voice and video through one door and normalizes their different billing units (tokens, images, seconds, minutes) into a single ledger, recording every fallback attempt rather than only the winner",
+          "Measured the band where raising concurrency alone drops the cost of 1M output tokens from $17.43 to $4.59 on the same B200",
           "Measured bit rot that 3-way replication alone cannot catch, on real on-prem storage",
           "Pointed a storage validation tool at its own infrastructure first, and it found its own defects",
           "Calculated the real break-even point for on-prem vs. cloud storage using TCO",
