@@ -749,6 +749,23 @@
         "#날조없음"
       ],
       "q": "paper arxiv 논문 초록 abstract 홍보 promo thread 스레드 linkedin 캐러셀 carousel 결과 요약"
+    },
+    {
+      "fam": "tech-llm",
+      "repo": "hyojunguy/rankptq-embed-v2",
+      "url": "https://github.com/hyojunguy/rankptq-embed-v2",
+      "private": true,
+      "lang": "Python",
+      "date": "2026.09.16",
+      "title": "PTQ 캘리브레이션은 언제 돕고 언제 망치나 — 임베더 양자화의 dose 붕괴와 검증 게이트",
+      "excerpt": "텍스트 임베더를 4비트로 양자화할 때 검색 라벨로 quantizer 를 학습시키는 캘리브레이션이 같은 절차인데도 이득과 붕괴를 오간다는 것을 세 임베더, 161 런으로 잰 연구다. 결과를 가르는 축은 업데이트의 dose(양자화 모델이 시작점에서 얼마나 움직였나)이고, 한 모델에서 같은 학습률 격자가 +1.5 포인트에서 −71.5 포인트까지 벌어졌다. 그래서 캘리브레이션을 선택적 개입으로 두고, 라벨을 안 본 검증 쿼리의 짝 신뢰구간이 미보정 기준선을 넘을 때만 체크포인트를 받는 사전등록 규칙을 6 슬레이트 30 결정에서 시험했다. 붕괴는 전부 거른 대신 이득 11건 중 3건을 놓쳤고, 이 안전·기회 trade-off 를 숨기지 않고 그대로 보고한다. 뒤이은 두 방법 시도(작은 검증셋 인증, slate 간 gradient 합의)는 사전등록 게이트에서 반증돼 음성 결과로 남겼다.",
+      "tags": [
+        "#PTQ",
+        "#임베딩양자화",
+        "#선택적캘리브레이션",
+        "#음성결과"
+      ],
+      "q": "ptq quantization 양자화 embedder 임베더 calibration 캘리브레이션 dose 붕괴 collapse retrieval 검색 ndcg lambdarank validation gate 검증 게이트 abstention 기권 preregistration 사전등록 negative result 음성 결과 e5 bge gemma"
     }
   ],
   "rewrite": [

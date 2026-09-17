@@ -39,7 +39,7 @@ async function load() {
   wireCount();
 }
 
-/* 영문 오버레이. 국문 제목을 키로 쓴다(173장 중복 0 확인됨).
+/* 영문 오버레이. 국문 제목을 키로 쓴다(174장 중복 0 확인됨).
    오버레이가 없거나 키가 빠지면 그 카드만 국문으로 남는다(fail-open) —
    전량 커버는 tools/qa.mjs 게이트가 별도 방법(파일 대조)으로 센다. */
 async function applyEnCatalog() {
@@ -140,7 +140,7 @@ function wireSearch() {
   input.addEventListener("search", apply);
 
   /* 전역 검색 결과에서 tech.html?q=... 로 들어오면 그 카드가 바로 걸러져 보여야 한다.
-     안 그러면 173장 한가운데에 떨어뜨려 놓고 다시 찾으라는 셈이다. */
+     안 그러면 174장 한가운데에 떨어뜨려 놓고 다시 찾으라는 셈이다. */
   const deep = new URLSearchParams(location.search).get("q");
   if (deep) {
     input.value = deep;

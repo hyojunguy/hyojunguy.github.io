@@ -306,7 +306,7 @@ export const ko = {
 
   rnd: {
     intro:
-      "AI가 한 사람의 산출량을 어디까지 끌어올리는지 제 손으로 시험한 기록입니다. 비전, 신호 처리, 최적화, 추천처럼 오래 다뤄 온 영역을 에이전트로 넓히며 저장소 173개를 운영하고, 그중 42건은 측정값이 붙은 완성 구현입니다. 무엇을 재야 답이 나오는지 알기 때문에 논문을 읽는 자리에서 곧바로 실측 가능한 구현으로 넘어갑니다.",
+      "AI가 한 사람의 산출량을 어디까지 끌어올리는지 제 손으로 시험한 기록입니다. 비전, 신호 처리, 최적화, 추천처럼 오래 다뤄 온 영역을 에이전트로 넓히며 저장소 174개를 운영하고, 그중 42건은 측정값이 붙은 완성 구현입니다. 무엇을 재야 답이 나오는지 알기 때문에 논문을 읽는 자리에서 곧바로 실측 가능한 구현으로 넘어갑니다.",
     groups: [
       {
         name: "최적화 · 스케줄링",
@@ -754,7 +754,7 @@ export const en = {
 
   rnd: {
     intro:
-      "Extends long-held domains, computer vision, signal processing, combinatorial optimization, and recommendation, through agent-driven development. Knowing the field is what makes the speed possible: I know which measurement settles the question, so a paper becomes a measured implementation rather than a summary. Owns and operates 173 repositories, 42 of them completed implementations with measured results.",
+      "Extends long-held domains, computer vision, signal processing, combinatorial optimization, and recommendation, through agent-driven development. Knowing the field is what makes the speed possible: I know which measurement settles the question, so a paper becomes a measured implementation rather than a summary. Owns and operates 174 repositories, 42 of them completed implementations with measured results.",
     groups: [
       {
         name: "Optimization & Scheduling",
